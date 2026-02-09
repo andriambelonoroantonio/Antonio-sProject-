@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu veux me connaître ?</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #e94560; /* couleur mode sombre */
+            --secondary-color: #2F2E41;
+            --bg-color: #1a1a2e;
+            --card-bg: #16213e;
+            --text-color: #e94560;
+            --text-light: #b0b0b0;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container { width:100%; max-width:600px; margin:auto; }
+
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .profile-img-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), #a8a4ff);
+            padding: 5px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        h1 { font-size: 1.8rem; margin-bottom:5px; color: var(--text-color); }
+        .subtitle { color: var(--primary-color); font-weight:600; margin-bottom:20px; display:block; }
+        p { color: var(--text-light); margin-bottom:20px; font-size:0.95rem; }
+
+        .btn {
+            display:inline-block; padding:12px 30px;
+            background-color: var(--primary-color);
+            color:white; border:none; border-radius:50px;
+            cursor:pointer; font-size:1rem; font-weight:600;
+            transition: var(--transition); box-shadow:0 5px 15px rgba(233,69,96,0.3);
+            text-decoration:none; margin:5px;
+        }
+
+        .btn:hover { transform:translateY(-3px); box-shadow:0 8px 20px rgba(233,69,96,0.4); }
+        .btn-outline { background-color: transparent; border:2px solid var(--primary-color); color: var(--primary-color); box-shadow:none; }
+        .btn-outline:hover { background-color: var(--primary-color); color:white; }
+
+        .hidden-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease-out, opacity 0.5s ease; opacity:0; text-align:left; margin-top:20px; border-top:1px solid rgba(255,255,255,0.1); padding-top:0; }
+        .hidden-content.active { max-height:1000px; opacity:1; padding-top:20px; }
+
+        .info-group { margin-bottom:15px; }
+        .info-group h3 { font-size:1.1rem; margin-bottom:8px; color:var(--text-color); display:flex; align-items:center; gap:20px; }
+        .info-group h3 i { color: var(--primary-color); }
+        .tags { display:flex; flex-wrap:wrap; gap:8px; }
+        .tag { background-color: rgba(233,69,96,0.1); color: var(--primary-color); padding:5px 12px; border-radius:15px; font-size:0.8rem; font-weight:600; }
+
+        .social-links { margin-top:25px; display:flex; justify-content:center; gap:15px; }
+        .social-icon { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--text-light); background-color:rgba(255,255,255,0.05); text-decoration:none; transition: var(--transition); }
+        .social-icon:hover { background-color: var(--primary-color); color:white; transform:scale(1.1); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-card">
+
+            <!-- Photo de Profil -->
+            <div class="profile-img-container">
+                <img src="Antonio.jpg" alt="Ma Photo" class="profile-img">
+            </div>
+
+            <h1 id="name">Antonio Andriambelonoro</h1>
+            <span class="subtitle">Développeur & Créatif</span>
+            <p>Salut ! Tu es ici parce que tu veux me connaître ? Je suis passionné par la technologie, le design et l'innovation.</p>
+
+            <button class="btn" onclick="toggleDetails()" id="btn-know-more">
+                En savoir plus sur moi <i class="fas fa-arrow-down"></i>
+            </button>
+
+            <div class="hidden-content" id="my-details">
+
+                <div class="info-group">
+                    <h3><i class="fas fa-bullseye"></i> Qui suis-je vraiment ?</h3>
+                    <p>Je suis une personne curieuse qui aime apprendre chaque jour. J'ai commencé à coder sur mon téléphone et maintenant je construis des projets complets.</p>
+                </div>
+
+                <div class="info-group">
+                    <h3><i class="fas fa-code"></i> Des trucs que je pourrais faire comme competance </h3>
+                    <div class="tags">
+                        <span class="tag">Dancer</span>
+                        <span class="tag">Chanter</span>
+                        <span class="tag">Dessiner</span>
+                        <span class="tag">Manipuler PC</span>
+                        <span class="tag">Jouer de la guitare</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">css</span>
+                    </div>
+                </div>
+
+                <div class="info-group">
+                    <h3><i class="fas fa-heart"></i> Ce que j'aime</h3>
+                    <p>Basket-ball 🏀, écouter de la musique 🎶, quelqu'un d'honnête ☺️</p>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://wa.me/+919138364349?text=Salut%20Antonio,%20je%20veux%20voir%20ton%20profil" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.tiktok.com/@anto_nio0328?_r=1&_t=ZS-93lGi586PCO" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="mailto:andriambelonoroantonio50@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Afficher / masquer détails
+        function toggleDetails() {
+            const content = document.getElementById('my-details');
+            const btn = document.getElementById('btn-know-more');
+            content.classList.toggle('active');
+            if (content.classList.contains('active')) {
+                btn.innerHTML = 'Fermer <i class="fas fa-arrow-up"></i>';
+                btn.classList.add('btn-outline');
+            } else {
+                btn.innerHTML = 'En savoir plus sur moi <i class="fas fa-arrow-down"></i>';
+                btn.classList.remove('btn-outline');
+            }
+        }
+    </script>
+</body>
+</html>
